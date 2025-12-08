@@ -1,0 +1,26 @@
+{
+  "name": "cybo-track",
+  "version": "1.0.0",
+  "description": "Offline-first goal tracking app for mobile and desktop",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "mobile": "pnpm --filter mobile start",
+    "desktop": "pnpm --filter desktop tauri dev",
+    "build:mobile:android": "pnpm --filter mobile run android",
+    "build:mobile:ios": "pnpm --filter mobile run ios",
+    "build:desktop": "pnpm --filter desktop tauri build",
+    "clean": "pnpm -r clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
+
