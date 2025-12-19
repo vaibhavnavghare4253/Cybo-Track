@@ -1,0 +1,40 @@
+.new-goal {
+  max-width: 800px;
+}
+
+.new-goal h1 {
+  font-size: 32px;
+  color: #111827;
+  margin-bottom: 32px;
+}
+
+.new-goal form {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.new-goal button[type='submit'] {
+  width: 100%;
+  margin-top: 8px;
+}
+
