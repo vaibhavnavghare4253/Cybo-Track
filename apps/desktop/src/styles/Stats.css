@@ -1,0 +1,124 @@
+.stats-page {
+  max-width: 1200px;
+}
+
+.stats-page h1 {
+  font-size: 32px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stats-cards .stat-card {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stats-cards .stat-card.primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.stats-cards .stat-card.success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.stats-cards .stat-card.warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.stats-cards .stat-card.danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.stats-cards .stat-card .stat-value {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.stats-cards .stat-card .stat-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.progress-card {
+  background: white;
+  padding: 48px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.progress-card h2 {
+  color: #6b7280;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.big-number {
+  font-size: 72px;
+  font-weight: bold;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.progress-card p {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.insights-card {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.insights-card h2 {
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.insight {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.insight:last-child {
+  margin-bottom: 0;
+}
+
+.insight-emoji {
+  font-size: 32px;
+}
+
+.insight-text h3 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.insight-text p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
