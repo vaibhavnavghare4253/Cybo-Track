@@ -1,0 +1,19 @@
+{
+  "name": "@cybo-track/shared-core",
+  "version": "1.0.0",
+  "description": "Shared business logic and types for Cybo-Track",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.3"
+  }
+}
+
