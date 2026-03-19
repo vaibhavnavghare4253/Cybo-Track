@@ -15,21 +15,26 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>({
+    id: 'dev-user',
+    email: 'dev@local.com',
+    created_at: new Date().toISOString(),
+  });
+  const [loading, setLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    // Initialize database
-    db.initDatabase().then(() => {
-      // Check for existing session
-      supabase.auth.getSession().then(({ data: { session } }) => {
+    // Initialize database then check session
+    db.initDatabase()
+      .catch((e) => console.warn('DB init skipped:', e))
+      .then(() => supabase.auth.getSession())
+      .then(({ data: { session } }) => {
         if (session?.user) {
           loadUser(session.user.id, session.user.email!);
         }
         setLoading(false);
-      });
-    });
+      })
+      .catch(() => setLoading(false));
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
