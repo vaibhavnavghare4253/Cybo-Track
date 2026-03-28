@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { database } from '../database/db';
+import { mockDatabase as database } from '../database/mockDb';
 import { supabase } from '../services/supabase';
 import type { User } from '@cybo-track/shared-core';
 
@@ -15,8 +15,12 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>({
+    id: 'dev-user',
+    email: 'dev@local.com',
+    created_at: new Date().toISOString(),
+  });
+  const [loading, setLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {

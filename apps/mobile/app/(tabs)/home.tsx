@@ -9,8 +9,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useApp } from '../../src/context/AppContext';
-import { database } from '../../src/database/db';
-import { syncService } from '../../src/services/syncService';
+import { mockDatabase as database } from '../../src/database/mockDb';
 import {
   enrichGoalWithProgress,
   getTodayDateString,
@@ -54,9 +53,7 @@ export default function Home() {
 
   const handleSync = async () => {
     if (!user || syncing) return;
-
     setSyncing(true);
-    await syncService.sync(user.id);
     await loadGoals();
     setSyncing(false);
   };
