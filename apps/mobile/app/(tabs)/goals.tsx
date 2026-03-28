@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useApp } from '../../src/context/AppContext';
-import { database } from '../../src/database/db';
+import { mockDatabase as database } from '../../src/database/mockDb';
 import { enrichGoalWithProgress, type GoalWithProgress } from '@cybo-track/shared-core';
 
 export default function Goals() {
