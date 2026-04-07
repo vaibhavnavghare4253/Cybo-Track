@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useApp } from '../../src/context/AppContext';
-import { database } from '../../src/database/db';
+import { mockDatabase as database } from '../../src/database/mockDb';
 import { v4 as uuidv4 } from 'uuid';
 import type { Goal } from '@cybo-track/shared-core';
 
