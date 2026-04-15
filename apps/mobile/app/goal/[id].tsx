@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { database } from '../../src/database/db';
+import { mockDatabase as database } from '../../src/database/mockDb';
 import {
   enrichGoalWithProgress,
   getTodayDateString,
