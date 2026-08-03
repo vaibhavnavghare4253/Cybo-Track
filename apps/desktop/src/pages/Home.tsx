@@ -152,7 +152,7 @@ export default function Home() {
               <th>Daily Goals</th>
               <th>Progress</th>
               <th>Goal Target</th>
-              <th>Streak 🔥</th>
+              <th>Streak</th>
               <th>Days Left</th>
               <th>Status</th>
             </tr>

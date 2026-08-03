@@ -83,7 +83,9 @@ export default function Stats() {
       <div className="insights-card">
         <h2>Insights</h2>
         <div className="insight">
-          <span className="insight-emoji">🎯</span>
+          <span className="insight-icon completion">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+          </span>
           <div className="insight-text">
             <h3>Completion Rate</h3>
             <p>
@@ -95,7 +97,9 @@ export default function Stats() {
           </div>
         </div>
         <div className="insight">
-          <span className="insight-emoji">🔥</span>
+          <span className="insight-icon consistency">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </span>
           <div className="insight-text">
             <h3>Consistency</h3>
             <p>
@@ -106,7 +110,9 @@ export default function Stats() {
           </div>
         </div>
         <div className="insight">
-          <span className="insight-emoji">⚡</span>
+          <span className="insight-icon activity">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
           <div className="insight-text">
             <h3>Activity</h3>
             <p>

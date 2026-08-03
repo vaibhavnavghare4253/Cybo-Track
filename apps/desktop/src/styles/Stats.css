@@ -107,8 +107,29 @@
   margin-bottom: 0;
 }
 
-.insight-emoji {
-  font-size: 32px;
+.insight-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.insight-icon.completion {
+  background-color: #e0e7ff;
+  color: #6366f1;
+}
+
+.insight-icon.consistency {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.insight-icon.activity {
+  background-color: #d1fae5;
+  color: #059669;
 }
 
 .insight-text h3 {

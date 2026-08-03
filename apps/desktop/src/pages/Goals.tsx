@@ -78,7 +78,7 @@ export default function Goals() {
               </div>
               <div className="goal-stats">
                 <span>{goal.completion_percentage.toFixed(0)}% Complete</span>
-                <span>🔥 {goal.current_streak} day streak</span>
+                <span>{goal.current_streak} day streak</span>
               </div>
             </div>
           ))}
