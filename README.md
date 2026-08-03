@@ -242,42 +242,7 @@ Contributions are welcome! Please follow these steps:
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🐛 Troubleshooting
 
-### Mobile App Issues
-
-**Issue**: "Unable to resolve module..."
-```bash
-cd apps/mobile
-rm -rf node_modules
-pnpm install
-```
-
-**Issue**: Metro bundler cache issues
-```bash
-expo start -c
-```
-
-### Desktop App Issues
-
-**Issue**: Tauri build fails
-```bash
-cd apps/desktop/src-tauri
-cargo clean
-cargo build
-```
-
-**Issue**: Database not found
-- The database is created automatically on first run
-- Check that the app has write permissions
-
-## 📚 Additional Resources
-
-- [Expo Documentation](https://docs.expo.dev/)
-- [Tauri Documentation](https://v2.tauri.app/)
-- [Supabase Documentation](https://supabase.com/docs)
-- [React Navigation](https://reactnavigation.org/)
-- [React Router](https://reactrouter.com/)
 
 ## 💡 Development Tips
 
@@ -299,15 +264,6 @@ cargo build
 - [ ] Backup and restore functionality
 - [ ] Social sharing features
 
-## 📞 Support
-
-For issues, questions, or suggestions:
-
-1. Check [existing issues](https://github.com/yourusername/cybo-track/issues)
-2. Create a new issue if needed
-3. Contact: your-email@example.com
-
----
 
 **Built with ❤️ using React Native, Tauri, and Supabase**
 
