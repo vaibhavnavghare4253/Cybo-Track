@@ -24,7 +24,7 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/auth" element={<Navigate to="/" />} />
+      <Route path="/auth" element={user ? <Navigate to="/" /> : <Auth />} />
       <Route
         path="/"
         element={
