@@ -33,6 +33,19 @@ export default function Auth() {
     }
   };
 
+  const handleOfflineDemo = async () => {
+    setLoading(true);
+    setError('');
+    const result = await signIn('dev@local.com', 'password');
+    setLoading(false);
+
+    if (result.success) {
+      navigate('/');
+    } else {
+      setError(result.error || 'Failed to enter demo mode');
+    }
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -71,8 +84,22 @@ export default function Auth() {
         >
           {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
         </button>
+
+        <div className="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={handleOfflineDemo}
+          disabled={loading}
+        >
+          Continue with Demo Account (Offline)
+        </button>
       </div>
     </div>
   );
 }
+
 

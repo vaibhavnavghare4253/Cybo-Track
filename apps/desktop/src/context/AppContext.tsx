@@ -15,12 +15,8 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>({
-    id: 'dev-user',
-    email: 'dev@local.com',
-    created_at: new Date().toISOString(),
-  });
-  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
@@ -31,10 +27,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       .then(({ data: { session } }) => {
         if (session?.user) {
           loadUser(session.user.id, session.user.email!);
+        } else {
+          setUser(null);
         }
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        setUser(null);
+        setLoading(false);
+      });
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -91,9 +92,22 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       return { success: false, error: 'Failed to sign in' };
     } catch (error) {
+      const msg = error instanceof Error ? error.message : 'Unknown error';
+      // Fallback to local mode if Supabase is offline or fails to connect
+      if (
+        msg.includes('Failed to fetch') ||
+        msg.includes('Network Error') ||
+        msg.includes('network') ||
+        msg.includes('fetch')
+      ) {
+        console.warn('Supabase offline, logging in locally');
+        const localId = email === 'dev@local.com' ? 'dev-user' : 'local-' + btoa(email).replace(/=/g, '');
+        await loadUser(localId, email);
+        return { success: true };
+      }
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: msg,
       };
     }
   };
@@ -114,15 +128,32 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
       return { success: false, error: 'Failed to sign up' };
     } catch (error) {
+      const msg = error instanceof Error ? error.message : 'Unknown error';
+      // Fallback to local mode if Supabase is offline or fails to connect
+      if (
+        msg.includes('Failed to fetch') ||
+        msg.includes('Network Error') ||
+        msg.includes('network') ||
+        msg.includes('fetch')
+      ) {
+        console.warn('Supabase offline, registering locally');
+        const localId = email === 'dev@local.com' ? 'dev-user' : 'local-' + btoa(email).replace(/=/g, '');
+        await loadUser(localId, email);
+        return { success: true };
+      }
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: msg,
       };
     }
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    try {
+      await supabase.auth.signOut();
+    } catch (e) {
+      console.warn('Supabase signOut failed, signing out locally', e);
+    }
     setUser(null);
   };
 
